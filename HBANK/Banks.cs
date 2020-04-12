@@ -98,7 +98,8 @@ namespace HBANK
         }
         #endregion
 
-        private void grdBanks_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+
+        private void grdBanks_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             try
             {
@@ -109,13 +110,11 @@ namespace HBANK
                 SqlCommand command = dBConnection.getQuery(deleteQuery);
                 command.Parameters.AddWithValue("BANKCODE", row.Cells["dataBANKCODE"].Value);
                 command.ExecuteNonQuery();
-                getBanks();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            
         }
     }
 }

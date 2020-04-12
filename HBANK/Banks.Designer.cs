@@ -61,7 +61,7 @@
             this.grdBanks.Size = new System.Drawing.Size(820, 205);
             this.grdBanks.TabIndex = 0;
             this.grdBanks.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdBanks_CellValueChanged);
-            this.grdBanks.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.grdBanks_UserDeletedRow);
+            this.grdBanks.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.grdBanks_UserDeletingRow);
             // 
             // dataBANKCODE
             // 
