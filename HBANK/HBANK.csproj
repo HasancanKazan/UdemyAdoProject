@@ -72,6 +72,8 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bank.cs" />
+    <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\DBConnection.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

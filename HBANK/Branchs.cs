@@ -21,10 +21,22 @@ namespace HBANK
 
         private void Branchs_Load(object sender, EventArgs e)
         {
-            GetBanks();
+            
         }
 
 
+        
+
+        private void cmbBank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmbBank_Click(object sender, EventArgs e)
+        {
+            cmbBank.Items.Clear();
+            GetBanks();
+        }
         public void GetBanks()
         {
             DBConnection dBConnection = new DBConnection();
@@ -33,13 +45,13 @@ namespace HBANK
             string query = "SELECT BANKCODE, DESCRIPTION FROM BANKS";
             SqlCommand sqlCommand = dBConnection.getQuery(query);
             SqlDataReader dataReader = sqlCommand.ExecuteReader();
-
             while (dataReader.Read())
             {
-                cmbBank.Items.Add(dataReader["DESCRIPTION"]);
+                Bank bank = new Bank();
+                bank.BANKCODE = dataReader.GetString(0);
+                bank.DESCRIPTION = dataReader.GetString(1);
+                cmbBank.Items.Add(bank);
             }
-
-            cmbBank.SelectedIndex = 0;
         }
     }
 }
