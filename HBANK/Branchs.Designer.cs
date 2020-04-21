@@ -46,6 +46,20 @@
             this.grdBranch = new System.Windows.Forms.DataGridView();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.BRANCHCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BANKCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CURRENCYCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BANKCITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PASSIVEFLG = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ABROADFLG = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BLOCKEDFLG = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.EMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BANKNUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MODUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdBranch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,6 +220,21 @@
             // grdBranch
             // 
             this.grdBranch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdBranch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BRANCHCODE,
+            this.BANKCODE,
+            this.CURRENCYCODE,
+            this.DESCRIPTION,
+            this.BANKCITY,
+            this.PASSIVEFLG,
+            this.ABROADFLG,
+            this.BLOCKEDFLG,
+            this.EMAIL,
+            this.BANKNUMBER,
+            this.CREUSER,
+            this.CREDATE,
+            this.MODDATE,
+            this.MODUSER});
             this.grdBranch.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grdBranch.Location = new System.Drawing.Point(0, 146);
             this.grdBranch.Name = "grdBranch";
@@ -229,6 +258,92 @@
             this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // BRANCHCODE
+            // 
+            this.BRANCHCODE.DataPropertyName = "BRANCHCODE";
+            this.BRANCHCODE.HeaderText = "BranchCode";
+            this.BRANCHCODE.Name = "BRANCHCODE";
+            // 
+            // BANKCODE
+            // 
+            this.BANKCODE.DataPropertyName = "BANKCODE";
+            this.BANKCODE.HeaderText = "BankCode";
+            this.BANKCODE.Name = "BANKCODE";
+            // 
+            // CURRENCYCODE
+            // 
+            this.CURRENCYCODE.DataPropertyName = "CURRENCYCODE";
+            this.CURRENCYCODE.HeaderText = "CurrencyCode";
+            this.CURRENCYCODE.Name = "CURRENCYCODE";
+            // 
+            // DESCRIPTION
+            // 
+            this.DESCRIPTION.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION.HeaderText = "Description";
+            this.DESCRIPTION.Name = "DESCRIPTION";
+            // 
+            // BANKCITY
+            // 
+            this.BANKCITY.DataPropertyName = "BANKCITY";
+            this.BANKCITY.HeaderText = "BankCity";
+            this.BANKCITY.Name = "BANKCITY";
+            // 
+            // PASSIVEFLG
+            // 
+            this.PASSIVEFLG.DataPropertyName = "PASSIVE_FLG";
+            this.PASSIVEFLG.HeaderText = "Passive";
+            this.PASSIVEFLG.Name = "PASSIVEFLG";
+            // 
+            // ABROADFLG
+            // 
+            this.ABROADFLG.DataPropertyName = "ABROAD_FLG";
+            this.ABROADFLG.HeaderText = "Abroad";
+            this.ABROADFLG.Name = "ABROADFLG";
+            // 
+            // BLOCKEDFLG
+            // 
+            this.BLOCKEDFLG.DataPropertyName = "BLOCKED_FLG";
+            this.BLOCKEDFLG.HeaderText = "Blocked";
+            this.BLOCKEDFLG.Name = "BLOCKEDFLG";
+            // 
+            // EMAIL
+            // 
+            this.EMAIL.DataPropertyName = "EMAIL";
+            this.EMAIL.HeaderText = "EMail";
+            this.EMAIL.Name = "EMAIL";
+            this.EMAIL.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.EMAIL.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // BANKNUMBER
+            // 
+            this.BANKNUMBER.DataPropertyName = "BANKNUMBER";
+            this.BANKNUMBER.HeaderText = "BankNumber";
+            this.BANKNUMBER.Name = "BANKNUMBER";
+            // 
+            // CREUSER
+            // 
+            this.CREUSER.DataPropertyName = "CREUSER";
+            this.CREUSER.HeaderText = "CreUser";
+            this.CREUSER.Name = "CREUSER";
+            // 
+            // CREDATE
+            // 
+            this.CREDATE.DataPropertyName = "CREDATE";
+            this.CREDATE.HeaderText = "CreDate";
+            this.CREDATE.Name = "CREDATE";
+            // 
+            // MODDATE
+            // 
+            this.MODDATE.DataPropertyName = "MODDATE";
+            this.MODDATE.HeaderText = "ModDate";
+            this.MODDATE.Name = "MODDATE";
+            // 
+            // MODUSER
+            // 
+            this.MODUSER.DataPropertyName = "MODUSER";
+            this.MODUSER.HeaderText = "ModUser";
+            this.MODUSER.Name = "MODUSER";
             // 
             // Branchs
             // 
@@ -282,5 +397,19 @@
         private System.Windows.Forms.DataGridView grdBranch;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BRANCHCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BANKCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CURRENCYCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BANKCITY;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn PASSIVEFLG;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ABROADFLG;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn BLOCKEDFLG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EMAIL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BANKNUMBER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREUSER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREDATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MODDATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MODUSER;
     }
 }
