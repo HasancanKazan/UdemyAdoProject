@@ -1,4 +1,5 @@
-﻿using HBANK.Models;
+﻿using HBANK.Base;
+using HBANK.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,8 @@ namespace HBANK
 
         private void Branchs_Load(object sender, EventArgs e)
         {
-            
+            //Sayfa açılışında gride şubeleri getir.
+            getBranchs();
         }
 
 
@@ -52,6 +54,16 @@ namespace HBANK
                 bank.DESCRIPTION = dataReader.GetString(1);
                 cmbBank.Items.Add(bank);
             }
+        }
+
+        public void getBranchs()
+        {
+            string query = "SELECT * FROM BRANCHS";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, BaseMethods.ConnectionString());
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            grdBranch.DataSource = dt;
+
         }
     }
 }
