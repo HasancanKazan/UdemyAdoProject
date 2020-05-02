@@ -48,6 +48,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.BRANCHCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BANKCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BANKNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CURRENCYCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BANKCITY = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -223,6 +224,7 @@
             this.grdBranch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BRANCHCODE,
             this.BANKCODE,
+            this.BANKNAME,
             this.CURRENCYCODE,
             this.DESCRIPTION,
             this.BANKCITY,
@@ -240,6 +242,7 @@
             this.grdBranch.Name = "grdBranch";
             this.grdBranch.Size = new System.Drawing.Size(870, 160);
             this.grdBranch.TabIndex = 15;
+            this.grdBranch.SelectionChanged += new System.EventHandler(this.grdBranch_SelectionChanged);
             // 
             // btnSave
             // 
@@ -270,6 +273,12 @@
             this.BANKCODE.DataPropertyName = "BANKCODE";
             this.BANKCODE.HeaderText = "BankCode";
             this.BANKCODE.Name = "BANKCODE";
+            // 
+            // BANKNAME
+            // 
+            this.BANKNAME.DataPropertyName = "BANKNAME";
+            this.BANKNAME.HeaderText = "BankName";
+            this.BANKNAME.Name = "BANKNAME";
             // 
             // CURRENCYCODE
             // 
@@ -399,6 +408,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn BRANCHCODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn BANKCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BANKNAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn CURRENCYCODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
         private System.Windows.Forms.DataGridViewTextBoxColumn BANKCITY;
