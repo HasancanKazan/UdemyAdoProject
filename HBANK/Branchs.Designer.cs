@@ -44,8 +44,6 @@
             this.txtBankNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.grdBranch = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.BRANCHCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BANKCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BANKNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +59,8 @@
             this.CREDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MODDATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MODUSER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdBranch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,24 +244,6 @@
             this.grdBranch.TabIndex = 15;
             this.grdBranch.SelectionChanged += new System.EventHandler(this.grdBranch_SelectionChanged);
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(757, 36);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 16;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(757, 65);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 17;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // BRANCHCODE
             // 
             this.BRANCHCODE.DataPropertyName = "BRANCHCODE";
@@ -353,6 +335,25 @@
             this.MODUSER.DataPropertyName = "MODUSER";
             this.MODUSER.HeaderText = "ModUser";
             this.MODUSER.Name = "MODUSER";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(757, 36);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(757, 65);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 17;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // Branchs
             // 

@@ -87,6 +87,37 @@ namespace HBANK
             
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            DBConnection connection = new DBConnection();
 
+            if (grdBranch.CurrentRow != null)
+            {
+                var connectionDb = connection.ConnectionOpen();
+                var command = connection.getQuery("SaveOrUpdateBranch");
+                command.CommandType = CommandType.StoredProcedure;
+                DataGridViewRow row = grdBranch.CurrentRow;
+
+                command.Parameters.AddWithValue("@BRANCHCODE", row.Cells["BRANCHCODE"].Value);
+
+                var bank = cmbBank.SelectedItem as Bank; //as ve is kullanımları 
+
+                command.Parameters.AddWithValue("@BANKCODE", bank.BANKCODE);
+                command.Parameters.AddWithValue("@CURRENCYCODE", cmbCurrency.SelectedItem);
+                command.Parameters.AddWithValue("@DESCRIPTION", txtDesc.Text);
+                command.Parameters.AddWithValue("@BANKCITY", cmbBankCity.SelectedItem);
+                command.Parameters.AddWithValue("@PASSIVE_FLG", chkPassive.Checked);
+                command.Parameters.AddWithValue("@ABROAD_FLG", chkAbroad.Checked);
+                command.Parameters.AddWithValue("@BLOCKED_FLG", chkBlok.Checked);
+                command.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
+                command.Parameters.AddWithValue("@BANKNUMBER", txtBankNumber.Text);
+                command.Parameters.AddWithValue("@CREDATE", row.Cells["CREDATE"].Value);
+                command.Parameters.AddWithValue("@CREUSER", row.Cells["CREUSER"].Value);
+                command.Parameters.AddWithValue("@MODUSER", row.Cells["MODUSER"].Value);
+                command.Parameters.AddWithValue("@MODDATE", row.Cells["MODDATE"].Value);
+                command.ExecuteNonQuery();
+                connectionDb.Close();
+            }
+        }
     }
 }
