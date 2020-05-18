@@ -24,24 +24,11 @@ namespace HBANK
         {
             //Sayfa açılışında gride şubeleri getir.
             getBranchs();
-        }
-
-
-        
-
-        private void cmbBank_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            var bank = cmbBank.SelectedItem as Bank;
-            var v = bank.BANKCODE;
-
-        }
-
-        private void cmbBank_Click(object sender, EventArgs e)
-        {
-            cmbBank.Items.Clear();
             GetBanks();
         }
+
+        List<Bank> banks = new List<Bank>();
+       
         public void GetBanks()
         {
             DBConnection dBConnection = new DBConnection();
@@ -56,6 +43,7 @@ namespace HBANK
                 bank.BANKCODE = dataReader.GetString(0);
                 bank.DESCRIPTION = dataReader.GetString(1);
                 cmbBank.Items.Add(bank);
+                banks.Add(bank);
             }
         }
 
@@ -77,7 +65,13 @@ namespace HBANK
                 txtEmail.Text = grdBranch.CurrentRow.Cells["EMAIL"].Value.ToString();
                 txtDesc.Text = grdBranch.CurrentRow.Cells["DESCRIPTION"].Value.ToString();
                 txtBankNumber.Text = grdBranch.CurrentRow.Cells["BANKNUMBER"].Value.ToString();
-                cmbBank.Text = grdBranch.CurrentRow.Cells["BANKNAME"].Value.ToString();
+
+                foreach (var item in banks)
+                {
+                    if(item.BANKCODE == grdBranch.CurrentRow.Cells["BANKCODE"].Value.ToString())
+                        cmbBank.SelectedItem = item;
+                }
+                //cmbBank.SelectedItem = grdBranch.CurrentRow.Cells["BANKNAME"].Value.ToString();
                 cmbCurrency.Text = grdBranch.CurrentRow.Cells["CURRENCYCODE"].Value.ToString();
                 cmbBankCity.Text = grdBranch.CurrentRow.Cells["BANKCITY"].Value.ToString();
                 chkPassive.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["PASSIVEFLG"].Value);
@@ -117,6 +111,7 @@ namespace HBANK
                 command.Parameters.AddWithValue("@MODDATE", row.Cells["MODDATE"].Value);
                 command.ExecuteNonQuery();
                 connectionDb.Close();
+                getBranchs();
             }
         }
     }
