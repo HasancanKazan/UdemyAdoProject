@@ -80,8 +80,6 @@
             this.cmbBank.Name = "cmbBank";
             this.cmbBank.Size = new System.Drawing.Size(208, 21);
             this.cmbBank.TabIndex = 1;
-            this.cmbBank.SelectedIndexChanged += new System.EventHandler(this.cmbBank_SelectedIndexChanged);
-            this.cmbBank.Click += new System.EventHandler(this.cmbBank_Click);
             // 
             // label2
             // 
