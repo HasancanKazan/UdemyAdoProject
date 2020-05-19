@@ -28,7 +28,7 @@ namespace HBANK
         }
 
         List<Bank> banks = new List<Bank>();
-       
+
         public void GetBanks()
         {
             DBConnection dBConnection = new DBConnection();
@@ -68,7 +68,7 @@ namespace HBANK
 
                 foreach (var item in banks)
                 {
-                    if(item.BANKCODE == grdBranch.CurrentRow.Cells["BANKCODE"].Value.ToString())
+                    if (item.BANKCODE == grdBranch.CurrentRow.Cells["BANKCODE"].Value.ToString())
                         cmbBank.SelectedItem = item;
                 }
                 //cmbBank.SelectedItem = grdBranch.CurrentRow.Cells["BANKNAME"].Value.ToString();
@@ -78,7 +78,11 @@ namespace HBANK
                 chkBlok.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["BLOCKEDFLG"].Value);
                 chkAbroad.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["ABROADFLG"].Value);
             }
-            
+            else
+            {
+                setNull();
+            }
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -113,6 +117,20 @@ namespace HBANK
                 connectionDb.Close();
                 getBranchs();
             }
+        }
+
+
+        public void setNull()
+        {
+            cmbBank.SelectedItem = null;
+            cmbCurrency.SelectedItem = null;
+            txtDesc.Text = null;
+            cmbBankCity.SelectedItem = null;
+            txtBankNumber.Text = null;
+            txtEmail.Text = null;
+            chkAbroad.Checked = false;
+            chkBlok.Checked = false;
+            chkPassive.Checked = false;
         }
     }
 }
