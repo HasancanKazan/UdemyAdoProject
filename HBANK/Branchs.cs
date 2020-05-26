@@ -28,6 +28,7 @@ namespace HBANK
         }
 
         List<Bank> banks = new List<Bank>();
+        bool isNew;
 
         public void GetBanks()
         {
@@ -77,6 +78,7 @@ namespace HBANK
                 chkPassive.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["PASSIVEFLG"].Value);
                 chkBlok.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["BLOCKEDFLG"].Value);
                 chkAbroad.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["ABROADFLG"].Value);
+                isNew = false;
             }
             else
             {
@@ -96,7 +98,7 @@ namespace HBANK
                 command.CommandType = CommandType.StoredProcedure;
                 DataGridViewRow row = grdBranch.CurrentRow;
 
-                command.Parameters.AddWithValue("@BRANCHCODE", row.Cells["BRANCHCODE"].Value);
+                command.Parameters.AddWithValue("@BRANCHCODE",!isNew? row.Cells["BRANCHCODE"].Value:0);
 
                 var bank = cmbBank.SelectedItem as Bank; //as ve is kullanımları 
 
@@ -131,6 +133,7 @@ namespace HBANK
             chkAbroad.Checked = false;
             chkBlok.Checked = false;
             chkPassive.Checked = false;
+            isNew = true;
         }
     }
 }
