@@ -37,7 +37,11 @@ namespace HBANK
             else
             {
                 Home home = new Home();
-                home.UserId = userId.ToString();
+                //home.UserId = userId.ToString();
+
+                BaseMethods baseMethods = new BaseMethods();
+                home.user = baseMethods.getUser(userId.ToString());
+
                 home.Show();
                 this.Hide();
             }

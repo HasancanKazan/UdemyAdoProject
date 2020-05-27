@@ -16,7 +16,7 @@ namespace HBANK
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Branchs());
+            Application.Run(new Login());
         }
     }
 }
