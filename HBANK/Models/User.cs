@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HBANK.Users
 {
-    class User
+    public class User
     {
         public string USER_ID { get; set; }
         public string USER_NAME { get; set; }
