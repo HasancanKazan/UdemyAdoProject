@@ -55,5 +55,13 @@ namespace HBANK
             banks.Show();
             this.Hide();
         }
+
+        private void branchsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Branchs branchs = new Branchs();
+            branchs.user = user;
+            branchs.Show();
+            this.Hide();
+        }
     }
 }
