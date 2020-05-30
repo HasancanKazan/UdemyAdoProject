@@ -1,5 +1,6 @@
 ﻿using HBANK.Base;
 using HBANK.Models;
+using HBANK.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,16 +20,17 @@ namespace HBANK
         {
             InitializeComponent();
         }
+        public User user;
+        List<Bank> banks = new List<Bank>();
+        bool isNew;
 
         private void Branchs_Load(object sender, EventArgs e)
         {
             //Sayfa açılışında gride şubeleri getir.
             getBranchs();
             GetBanks();
+            setNull();
         }
-
-        List<Bank> banks = new List<Bank>();
-        bool isNew;
 
         public void GetBanks()
         {
@@ -56,7 +58,6 @@ namespace HBANK
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             grdBranch.DataSource = dt;
-
         }
 
         private void grdBranch_SelectionChanged(object sender, EventArgs e)
@@ -97,11 +98,8 @@ namespace HBANK
                 var command = connection.getQuery("SaveOrUpdateBranch");
                 command.CommandType = CommandType.StoredProcedure;
                 DataGridViewRow row = grdBranch.CurrentRow;
-
                 command.Parameters.AddWithValue("@BRANCHCODE",!isNew? row.Cells["BRANCHCODE"].Value:0);
-
                 var bank = cmbBank.SelectedItem as Bank; //as ve is kullanımları 
-
                 command.Parameters.AddWithValue("@BANKCODE", bank.BANKCODE);
                 command.Parameters.AddWithValue("@CURRENCYCODE", cmbCurrency.SelectedItem);
                 command.Parameters.AddWithValue("@DESCRIPTION", txtDesc.Text);
@@ -111,10 +109,10 @@ namespace HBANK
                 command.Parameters.AddWithValue("@BLOCKED_FLG", chkBlok.Checked);
                 command.Parameters.AddWithValue("@EMAIL", txtEmail.Text);
                 command.Parameters.AddWithValue("@BANKNUMBER", txtBankNumber.Text);
-                command.Parameters.AddWithValue("@CREDATE", row.Cells["CREDATE"].Value);
-                command.Parameters.AddWithValue("@CREUSER", row.Cells["CREUSER"].Value);
-                command.Parameters.AddWithValue("@MODUSER", row.Cells["MODUSER"].Value);
-                command.Parameters.AddWithValue("@MODDATE", row.Cells["MODDATE"].Value);
+                command.Parameters.AddWithValue("@CREDATE", !isNew ? row.Cells["CREDATE"].Value : DateTime.Now);
+                command.Parameters.AddWithValue("@CREUSER", !isNew ? row.Cells["CREUSER"].Value : user.FULL_NAME);
+                command.Parameters.AddWithValue("@MODUSER", user.FULL_NAME);
+                command.Parameters.AddWithValue("@MODDATE", DateTime.Now);
                 command.ExecuteNonQuery();
                 connectionDb.Close();
                 getBranchs();
