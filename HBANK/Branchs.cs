@@ -80,6 +80,7 @@ namespace HBANK
                 chkBlok.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["BLOCKEDFLG"].Value);
                 chkAbroad.Checked = Convert.ToBoolean(grdBranch.CurrentRow.Cells["ABROADFLG"].Value);
                 isNew = false;
+                btnDelete.Enabled = true;
             }
             else
             {
@@ -132,6 +133,24 @@ namespace HBANK
             chkBlok.Checked = false;
             chkPassive.Checked = false;
             isNew = true;
+            btnDelete.Enabled = false;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DBConnection connection = new DBConnection();
+
+            if (grdBranch.CurrentRow != null)
+            {
+                var connectionDb = connection.ConnectionOpen();
+                var command = connection.getQuery("DeleteBranch");
+                command.CommandType = CommandType.StoredProcedure;
+                DataGridViewRow row = grdBranch.CurrentRow;
+                command.Parameters.AddWithValue("@BRANCHCODE",row.Cells["BRANCHCODE"].Value);
+                command.ExecuteNonQuery();
+                connectionDb.Close();
+                getBranchs();
+            }
         }
     }
 }
