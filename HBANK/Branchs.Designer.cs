@@ -336,7 +336,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(757, 36);
+            this.btnSave.Location = new System.Drawing.Point(758, 43);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 16;
@@ -346,12 +346,14 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(757, 65);
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(758, 72);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Branchs
             // 
